@@ -11,6 +11,8 @@ And we are setting up the k3s cluster on EC2 istances at the time of creation. O
 ## With the above commands it will create the required infrastructure on AWS. 
 # we have to login to master ec2 instaces through shell and copy the k3s join_token, which is used for to add the nodes into the k3s clustrer 
 # Run the below command other ec2 instance to add it to k3s cluster. 
+## We can get the tokee from master server from this location /var/lib/rancher/k3s/server/node-token 
+copy the above token replace it in below command and run the below command on node machine
 ``` sudo curl -sfL http://get.k3s.io | K3S_URL=https://<master_IP>:6443 K3S_TOKEN=<join_token> sh -s ```
 ## We are done with the cluster setup. Now we have to run the Manifest file to deploy the application to k3s cluster. 
 ## use below commands to deploy nginx into above cluster 
